@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html>
+
+<head>
+    <title>Chat_LLM</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="index.js"></script>
+</head>
+
+<header>
+    <div class="nav-div">
+        <div class="nav-div-link">
+            <div class="nav-div-con"><a href="http://121.40.101.15:8000">OCR</a></div>
+            <div class="nav-div-con"><a href="http://121.40.101.15:8001">TCM</a></div>
+            <div class="nav-div-con"><a href="http://121.40.101.15:8080">MON</a></div>
+            <div class="nav-div-con">Gemini API_KEY</a></div>
+            <input id="input-api-key" class="input-API_KEY" type="text" placeholder="请输入API_KEY">
+        </div>
+    </div>
+    <div class="nav-div"></div>
+</header>
+
+<body>
+    <div class="body_div">
+        <div class="left-panel">
+            <!-- 聊天的会话记录 -->
+            <div class="session_div">
+                <ul class="session_ul">
+                </ul>
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="chat-process">
+                <!-- 聊天过程 -->
+                <ul class="conversion_ul">
+                </ul>
+            </div>
+            <div class="input-window">
+                <!-- 输入窗口 -->
+                <input id="input-text" class="input-text" type="text" placeholder="请输入内容">
+                <button type="submit" onclick="proc_Data_front()">提交</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
