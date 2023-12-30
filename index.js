@@ -165,9 +165,10 @@ function call_Gemini_Rest_API(inputContent, input_api_key) {
             //const parsedData = JSON.parse(data);
             const textValue = data.candidates[0].content.parts[0].text;
             console.log("120" + textValue);
+            textHtml = marked(textValue);
 
             const ul = document.querySelector('.right-panel .conversion_ul');
-            addConversionItem(ul, inputContent, textValue);
+            addConversionItem(ul, inputContent, textHtml);
 
             clearInput();
 
@@ -184,3 +185,6 @@ document.addEventListener('DOMContentLoaded', function () {
     init_api_key();
 
 });
+
+
+
