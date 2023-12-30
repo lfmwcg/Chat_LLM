@@ -21,15 +21,46 @@ function fetchSessionData() {
 
 //fetchSessionData()
 
-function addConversionItem(ul, userText, aiText) {
+function addConversionItemUser(userText) {
+    const ul = document.querySelector('.right-panel .conversion_ul');
+
     const div = document.createElement('div');
     div.classList.add('li_conversion_div');
-    const li_usr = document.createElement('li');
-    li_usr.innerHTML = '<img src="static/user.png" alt="Icon" class="icon">' + userText;
-    div.appendChild(li_usr);
-    const li_ai = document.createElement('li');
-    li_ai.innerHTML = '<img src="static/ai.png" alt="Icon" class="icon">' + aiText;
-    div.appendChild(li_ai);
+
+    const div_usr = document.createElement('div');
+    div_usr.classList.add('conversion_title');
+    div_usr.innerHTML = '<img src="static/user.png" alt="Icon" class="icon">';
+    div.appendChild(div_usr);
+
+    const div_usr_text = document.createElement('div');
+    div_usr_text.innerHTML = userText;
+    div.appendChild(div_usr_text);
+
+    const br = document.createElement('br');
+    ul.appendChild(br);
+
+    ul.appendChild(div);
+
+    clearInput();
+
+    const chatProcess = document.querySelector('.chat-process');
+    chatProcess.scrollTop = chatProcess.scrollHeight - chatProcess.clientHeight;
+}
+
+function addConversionItemAI(aiText) {
+    const ul = document.querySelector('.right-panel .conversion_ul');
+
+    const div = document.createElement('div');
+    div.classList.add('li_conversion_div');
+
+    const div_ai = document.createElement('div');
+    div_ai.classList.add('conversion_title');
+    div_ai.innerHTML = '<img src="static/ai.png" alt="Icon" class="icon">';
+    div.appendChild(div_ai);
+
+    const div_ai_text = document.createElement('div');
+    div_ai_text.innerHTML = aiText;
+    div.appendChild(div_ai_text);
 
     const br = document.createElement('br');
     ul.appendChild(br);
@@ -76,6 +107,8 @@ function submitData() {
     if (inputContent.trim() === '') {
         return;
     }
+
+    addConversionItemUser(inputContent);
     // 将 inputContent 提交到后台处理
     // 例如使用 fetch 或者 XMLHttpRequest 发送数据到后台
     fetch('/usr_submit_data', {
@@ -89,13 +122,7 @@ function submitData() {
         .then(data => {
             console.log(data.message);
 
-            const ul = document.querySelector('.right-panel .conversion_ul');
-            addConversionItem(ul, inputContent, data.message);
-
-            const chatProcess = document.querySelector('.chat-process');
-            chatProcess.scrollTop = chatProcess.scrollHeight - chatProcess.clientHeight;
-
-            clearInput();
+            addConversionItemAI(data.message);
 
         })
         .catch(error => {
@@ -120,6 +147,7 @@ function proc_Data_front() {
     if (inputContent.trim() === '') {
         return;
     }
+    addConversionItemUser(inputContent);
 
     message = call_Gemini_Rest_API(inputContent, input_api_key);
 
@@ -165,10 +193,9 @@ function call_Gemini_Rest_API(inputContent, input_api_key) {
             //const parsedData = JSON.parse(data);
             const textValue = data.candidates[0].content.parts[0].text;
             console.log("120" + textValue);
-            textHtml = marked(textValue);
 
             const ul = document.querySelector('.right-panel .conversion_ul');
-            addConversionItem(ul, inputContent, textHtml);
+            addConversionItemAI(textValue);
 
             clearInput();
 
