@@ -153,6 +153,13 @@ function proc_Data_front() {
 
 }
 
+function proc_gemini_rsp_data(rsp_data){
+    console.log("--proc_gemini_rsp_data--");
+    const converter = new showdown.Converter();
+    const html = converter.makeHtml(rsp_data);
+    addConversionItemAI(html);
+
+}
 
 function call_Gemini_Rest_API(inputContent, input_api_key) {
 
@@ -194,9 +201,8 @@ function call_Gemini_Rest_API(inputContent, input_api_key) {
             const textValue = data.candidates[0].content.parts[0].text;
             console.log("--call_Gemini_Rest_API--");
             console.log(textValue);
-
-            const ul = document.querySelector('.right-panel .conversion_ul');
-            addConversionItemAI(textValue);
+            proc_gemini_rsp_data(textValue);
+            //addConversionItemAI(textValue);
 
             clearInput();
 
