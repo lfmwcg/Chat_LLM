@@ -192,7 +192,8 @@ function call_Gemini_Rest_API(inputContent, input_api_key) {
             // 在这里处理服务器的响应
             //const parsedData = JSON.parse(data);
             const textValue = data.candidates[0].content.parts[0].text;
-            console.log("120" + textValue);
+            console.log("--call_Gemini_Rest_API--");
+            console.log(textValue);
 
             const ul = document.querySelector('.right-panel .conversion_ul');
             addConversionItemAI(textValue);
