@@ -21,15 +21,20 @@ function fetchSessionData() {
 
 //fetchSessionData()
 
+function createConversionUserDiv() {
+    const div_usr = document.createElement('div');
+    div_usr.classList.add('conversion_title');
+    div_usr.innerHTML = '<img src="static/user.png" alt="Icon" class="icon">';
+    return div_usr;
+}
+
 function addConversionItemUser(userText) {
     const ul = document.querySelector('.right-panel .conversion_ul');
 
     const div = document.createElement('div');
     div.classList.add('li_conversion_div');
 
-    const div_usr = document.createElement('div');
-    div_usr.classList.add('conversion_title');
-    div_usr.innerHTML = '<img src="static/user.png" alt="Icon" class="icon">';
+    const div_usr = createConversionUserDiv();
     div.appendChild(div_usr);
 
     const div_usr_text = document.createElement('div');
@@ -47,7 +52,7 @@ function addConversionItemUser(userText) {
     chatProcess.scrollTop = chatProcess.scrollHeight - chatProcess.clientHeight;
 }
 
-function addConversionItemAI(aiText) {
+function addConversionItemAI(aiText, rsp_data) {
     const ul = document.querySelector('.right-panel .conversion_ul');
 
     const div = document.createElement('div');
@@ -59,7 +64,9 @@ function addConversionItemAI(aiText) {
     div.appendChild(div_ai);
 
     const div_ai_text = document.createElement('div');
+    div_ai_text.setAttribute('data', rsp_data);
     div_ai_text.innerHTML = aiText;
+    div_ai_text.innerHTML += '<button id="copy" onclick="on_copy(this)">复制</button></div>';
     div.appendChild(div_ai_text);
 
     const br = document.createElement('br');
@@ -69,6 +76,14 @@ function addConversionItemAI(aiText) {
 
     const chatProcess = document.querySelector('.chat-process');
     chatProcess.scrollTop = chatProcess.scrollHeight - chatProcess.clientHeight;
+}
+
+const on_copy = (element) => {
+    const parentElement = element.parentElement;
+
+    console.log(parentElement.getAttribute('data'));
+    navigator.clipboard.writeText(parentElement.getAttribute('data'));
+
 }
 
 function clearInput() {
@@ -122,7 +137,7 @@ function submitData() {
         .then(data => {
             console.log(data.message);
 
-            addConversionItemAI(data.message);
+            //addConversionItemAI(data.message);
 
         })
         .catch(error => {
@@ -153,11 +168,11 @@ function proc_Data_front() {
 
 }
 
-function proc_gemini_rsp_data(rsp_data){
+function proc_gemini_rsp_data(rsp_data) {
     console.log("--proc_gemini_rsp_data--");
     const converter = new showdown.Converter();
     const html = converter.makeHtml(rsp_data);
-    addConversionItemAI(html);
+    addConversionItemAI(html, rsp_data);
 
 }
 
@@ -220,11 +235,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-document.addEventListener("keydown", function(event) {
+document.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
-      console.log('--keypress:Enter');
-      event.preventDefault();
-      document.getElementById("submit").click();
+        console.log('--keypress:Enter');
+        event.preventDefault();
+        document.getElementById("submit").click();
     }
-  });
+});
 
