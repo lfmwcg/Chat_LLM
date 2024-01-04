@@ -220,5 +220,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-
+document.addEventListener("keydown", function(event) {
+    console.log('keypress'+event.key);
+    if (event.key === "Enter") {
+      event.preventDefault();
+      document.getElementById("submit").click();
+    }
+  });
 
