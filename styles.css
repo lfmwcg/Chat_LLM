@@ -16,7 +16,7 @@ body {
 
 .right-panel {
     flex: 1;
-    margin-left: 2vw;
+    margin-left: 10vw;
     height: 95vh;
     background-color: #fff;
     padding: 0px;
@@ -28,18 +28,16 @@ body {
 .chat-process {
     list-style: none;
     height: 80vh;
-    padding: 0;
+    overflow-y: scroll;
     overflow-y: scroll;
 }
 
 .input-window {
     height: 10vh;
-    /* 修改输入框高度 */
-    width: 70vw;
-    /* 修改输入框宽度 */
     margin-top: 20px;
+
     border-radius: 5px;
-    text-align: center;
+    text-align: left;
 }
 
 .icon {
@@ -102,7 +100,7 @@ header {
 
 .input-text {
     height: 5em;
-    width: 30em;
+    width: 50%;
     border-radius: 10px;
     border-width: 1px;
 }
@@ -142,4 +140,9 @@ header {
 .conversion_title{
     margin-bottom: 10px;
     margin-top: 10px;
+}
+
+
+.conversion_ul{
+    width: 70%;
 }
