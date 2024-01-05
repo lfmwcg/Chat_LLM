@@ -6,23 +6,13 @@ body {
     display: flex;
 }
 
-.left-panel {
-    flex: 0 0 226px;
-    height: 95vh;
-    background-color: #000;
-    color: #fff;
-    padding: 0px;
-}
 
 .right-panel {
     flex: 1;
-    margin-left: 23vw;
     height: 95vh;
     background-color: #fff;
-    padding: 0px;
     overflow-y: hidden;
     text-align: left;
-
 }
 
 .chat-process {
@@ -36,8 +26,9 @@ body {
     text-align: left;
     display: flex;
     height: 5em;
-    width: 50%;
-    margin-top: 20px;
+    width: 30%;
+    margin-top: 25px;
+    margin-left: 30%;
     border: 1px solid black;
     border-radius: 10px;
     padding: 5px;
@@ -82,9 +73,11 @@ li {
 }
 
 .conversion_ul {
+    text-align: left;
+    list-style: none;
     list-style-type: none;
-    padding: 0;
-    margin: 0;
+    margin-left: 25%;
+    width: 50%;
 }
 
 .session_div {
@@ -188,6 +181,3 @@ header {
 }
 
 
-.conversion_ul{
-    width: 70%;
-}
