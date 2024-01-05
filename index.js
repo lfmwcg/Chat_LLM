@@ -151,9 +151,10 @@ function submitData() {
 
 function proc_Data_front() {
     console.log("--enter proc_Data_front--");
-    var input_api_key = document.getElementById('input-api-key').value;
+    const input_api_key = document.getElementById('input-api-key').value;
     if (input_api_key.trim() === '') {
         alert('请输入API_KEY');
+        return;
     }
 
     document.cookie = `input_api_key=${input_api_key}`;
@@ -164,7 +165,7 @@ function proc_Data_front() {
     }
     addConversionItemUser(inputContent);
 
-    message = call_Gemini_Rest_API(inputContent, input_api_key);
+    call_Gemini_Rest_API(inputContent, input_api_key);
 
 }
 
@@ -177,7 +178,7 @@ function proc_gemini_rsp_data(rsp_data) {
 }
 
 function call_Gemini_Rest_API(inputContent, input_api_key) {
-
+    console.log("--call_Gemini_Rest_API--");
     // 构造对应的数据结构
     var postData = {
         contents: [
@@ -211,25 +212,22 @@ function call_Gemini_Rest_API(inputContent, input_api_key) {
         })
         .then((data) => {
             console.log('Server response:', data); // 在控制台中输出服务器的响应数据
-            // 在这里处理服务器的响应
-            //const parsedData = JSON.parse(data);
             const textValue = data.candidates[0].content.parts[0].text;
-            console.log("--call_Gemini_Rest_API--");
             console.log(textValue);
             proc_gemini_rsp_data(textValue);
-            //addConversionItemAI(textValue);
 
             clearInput();
-
-            return textValue;
         })
         .catch((error) => {
             console.error('There was a problem with the fetch operation:', error);
+            const error_t = error.toString();
+            const error_t_p = "<p>" + error_t + "</p>";
+            addConversionItemAI(error_t_p, error_t);
         });
 }
 
 function on_setup() {
-    
+
     if (window.setupStatus == true) {
         document.getElementById('set-key').style.visibility = "hidden";
         document.getElementById('set-value').style.visibility = "hidden";
