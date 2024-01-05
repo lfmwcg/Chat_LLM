@@ -85,13 +85,39 @@ header {
 }
 
 .nav-div {
+    display: flex;
+    flex: 1;
+}
+
+.nav-div-menu {
+    display: flex;
     flex: 1;
 }
 
 .nav-div-link {
+    flex:1;
     display: flex;
     justify-content: flex-end;
     margin-top: 15px;
+}
+
+.nav-div-home {
+    flex:1;
+    display: flex;
+    margin-top: 15px;
+    margin-left: 30px;
+}
+
+.nav-div-set{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.set-e{
+    padding-right: 10px;
 }
 
 .nav-div-con {

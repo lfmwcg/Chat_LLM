@@ -12,15 +12,20 @@
 
 <header>
     <div class="nav-div">
-        <div class="nav-div-link">
-            <div class="nav-div-con"><a href="http://121.40.101.15:8000">OCR</a></div>
-            <div class="nav-div-con"><a href="http://121.40.101.15:8001">TCM</a></div>
-            <div class="nav-div-con"><a href="http://121.40.101.15:8080">MON</a></div>
-            <div class="nav-div-con">Gemini API_KEY</a></div>
-            <input id="input-api-key" class="input-API_KEY" type="password" placeholder="请输入API_KEY">
+        <div class="nav-div-menu">
+            <div class="nav-div-home"><a href="https://lfmwcg.github.io/Chat_LLM/">Chat_LLM</a></div>
+            <div class="nav-div-link">
+                <div class="nav-div-con"><a href="http://121.40.101.15:8000">OCR</a></div>
+                <div class="nav-div-con"><a href="http://121.40.101.15:8001">TCM</a></div>
+                <div class="nav-div-con"><a href="http://121.40.101.15:8080">MON</a></div>
+            </div>
+        </div>
+        <div class="nav-div-set">
+            <div class="set-e">Gemini API_KEY</div>
+            <div class="set-e"><input id="input-api-key" class="input-API_KEY" type="password" placeholder="请输入API_KEY"></div>
+            <div class="set-e"><button id="setup" onclick="on_setup()">设置</button></div>
         </div>
     </div>
-    <div class="nav-div"></div>
 </header>
 
 <body>
