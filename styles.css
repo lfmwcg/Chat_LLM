@@ -135,6 +135,7 @@ header {
 .input-API_KEY{
     margin-left: 20px;
     width: 200px;
+    border-radius: 5px;
 }
 
 .conversion_title{
