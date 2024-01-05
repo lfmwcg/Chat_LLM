@@ -228,6 +228,22 @@ function call_Gemini_Rest_API(inputContent, input_api_key) {
         });
 }
 
+function on_setup() {
+    
+    if (window.setupStatus == true) {
+        document.getElementById('set-key').style.visibility = "hidden";
+        document.getElementById('set-value').style.visibility = "hidden";
+        // 用一个全局变量记录设置状态
+        window.setupStatus = false;
+    } else {
+        document.getElementById('set-key').style.visibility = "visible";
+        document.getElementById('set-value').style.visibility = "visible";
+        window.setupStatus = true;
+    }
+}
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
     // 在这里放置需要在页面加载完成后执行的代码
     console.log('页面加载完成！');
