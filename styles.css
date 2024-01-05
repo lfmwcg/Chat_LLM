@@ -36,9 +36,6 @@ body {
     display: flex;
     height: 10vh;
     margin-top: 20px;
-
-    border-radius: 5px;
-    text-align: left;
 }
 
 .button-s{
