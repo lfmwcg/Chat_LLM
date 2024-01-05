@@ -33,11 +33,17 @@ body {
 }
 
 .input-window {
+    display: flex;
     height: 10vh;
     margin-top: 20px;
 
     border-radius: 5px;
     text-align: left;
+}
+
+.button-s{
+    padding-top: 2.5vh;
+    padding-left: 1vw;
 }
 
 .icon {
