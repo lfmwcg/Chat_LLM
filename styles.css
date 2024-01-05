@@ -33,13 +33,28 @@ body {
 }
 
 .input-window {
+    text-align: left;
     display: flex;
-    height: 10vh;
+    height: 5em;
+    width: 50%;
     margin-top: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.input-text {
+    flex: 11;
+    height: 5em;
+    width: 50%;
+    resize: none;
+    border: none;
+    outline: none;
 }
 
 .button-s{
-    padding-top: 2.5vh;
+    flex: 1;
+    padding-top: 3vh;
     padding-left: 1vw;
 }
 
@@ -132,12 +147,7 @@ header {
     margin-left: 20px;
 }
 
-.input-text {
-    height: 5em;
-    width: 50%;
-    border-radius: 10px;
-    border-width: 1px;
-}
+
 
 /* 定制垂直滚动条 */
 ::-webkit-scrollbar {
