@@ -180,3 +180,15 @@ header {
 }
 
 
+.div_usr_text{
+    background-color: gainsboro;
+    margin-left: 3%;
+    padding: 1%;
+
+}
+
+.div_ai_text{
+    background-color: gainsboro;
+    margin-left: 3%;
+    padding: 1%;
+}

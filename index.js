@@ -38,6 +38,7 @@ function addConversionItemUser(userText) {
     div.appendChild(div_usr);
 
     const div_usr_text = document.createElement('div');
+    div_usr_text.classList.add('div_usr_text');
     div_usr_text.innerHTML = userText;
     div.appendChild(div_usr_text);
 
@@ -64,6 +65,7 @@ function addConversionItemAI(aiText, rsp_data) {
     div.appendChild(div_ai);
 
     const div_ai_text = document.createElement('div');
+    div_ai_text.classList.add('div_ai_text');
     div_ai_text.setAttribute('data', rsp_data);
     div_ai_text.innerHTML = aiText;
     div_ai_text.innerHTML += '<button id="copy" onclick="on_copy(this)">复制</button></div>';
