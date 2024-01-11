@@ -42,7 +42,7 @@ body {
     outline: none;
 }
 
-.button-s{
+.button-s {
     flex: 1;
     padding-top: 2vh;
     padding-left: 1vw;
@@ -105,20 +105,20 @@ header {
 }
 
 .nav-div-link {
-    flex:1;
+    flex: 1;
     display: flex;
     justify-content: flex-end;
     margin-top: 15px;
 }
 
 .nav-div-home {
-    flex:1;
+    flex: 1;
     display: flex;
     margin-top: 15px;
     margin-left: 30px;
 }
 
-.nav-div-set{
+.nav-div-set {
     flex: 1;
     display: flex;
     justify-content: flex-end;
@@ -126,12 +126,12 @@ header {
     padding-left: 15px;
 }
 
-.set-e{
+.set-e {
     padding-right: 10px;
-    visibility:hidden;
+    visibility: hidden;
 }
 
-.set-b{
+.set-b {
     padding-right: 10px;
 }
 
@@ -168,27 +168,32 @@ header {
 }
 
 
-.input-API_KEY{
+.input-API_KEY {
     margin-left: 20px;
     width: 200px;
     border-radius: 5px;
 }
 
-.conversion_title{
+.conversion_title {
     margin-bottom: 10px;
     margin-top: 10px;
 }
 
 
-.div_usr_text{
+.div_usr_text {
     background-color: gainsboro;
     margin-left: 3%;
     padding: 1%;
 
 }
 
-.div_ai_text{
+.div_ai_text {
     background-color: gainsboro;
     margin-left: 3%;
     padding: 1%;
+}
+
+.button-copy {
+    display: flex;
+    justify-content: flex-end;
 }

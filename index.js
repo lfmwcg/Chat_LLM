@@ -68,7 +68,7 @@ function addConversionItemAI(aiText, rsp_data) {
     div_ai_text.classList.add('div_ai_text');
     div_ai_text.setAttribute('data', rsp_data);
     div_ai_text.innerHTML = aiText;
-    div_ai_text.innerHTML += '<button id="copy" onclick="on_copy(this)">复制</button></div>';
+    div_ai_text.innerHTML += '<div class="button-copy"><button id="copy" onclick="on_copy(this)">复制</button></div>';
     div.appendChild(div_ai_text);
 
     const br = document.createElement('br');
